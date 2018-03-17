@@ -3,10 +3,11 @@ package br.com.senac.dsw.model;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import java.io.Serializable;
 
-public class Produto {
+public class Produto implements Serializable {
 
-    private int id;
+    private long id;
     private String nome;
     private String descricao;
     private double precoCompra;
@@ -20,7 +21,7 @@ public class Produto {
         this.categorias = new ArrayList<>();
     }
 
-    public Produto(int id, String nome, String descricao, double precoCompra, double precoVenda, int quantidade, Date dtCadastro) {
+    public Produto(long id, String nome, String descricao, double precoCompra, double precoVenda, int quantidade, Date dtCadastro) {
         this.id = id;
         this.nome = nome;
         this.descricao = descricao;
@@ -31,11 +32,11 @@ public class Produto {
         this.categorias = new ArrayList<>();
     }
 
-    public int getId() {
+    public long getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(long id) {
         this.id = id;
     }
 
