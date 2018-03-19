@@ -1,7 +1,6 @@
 package br.com.senac.dsw.dao;
 
 import br.com.senac.dsw.model.Categoria;
-import com.mysql.cj.jdbc.PreparedStatement;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;

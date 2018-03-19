@@ -8,6 +8,19 @@
     <packaging>war</packaging>
 
     <name>ProjetoDSW</name>
+    
+     <developers>
+        <developer>
+            <name>Leonardo Oliveira</name>
+        </developer>
+        <developer>
+            <name>Igor Santos</name>
+        </developer>
+        <developer>
+            <name>Vinicius Fata</name>
+        </developer>
+    </developers>
+
 
     <properties>
         <endorsed.dir>${project.build.directory}/endorsed</endorsed.dir>
@@ -21,6 +34,7 @@
             <version>7.0</version>
             <scope>provided</scope>
         </dependency>
+        
         <dependency>
             <groupId>mysql</groupId>
             <artifactId>mysql-connector-java</artifactId>

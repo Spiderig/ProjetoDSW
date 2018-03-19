@@ -78,7 +78,7 @@ public class DAOProduto {
     public static List<Produto> search() {
         String sql = "SELECT id, nome, descricao, preco_compra, preco_venda, quantidade, dt_cadastro FROM produto";
         List<Produto> listaProdutos = new ArrayList<Produto>();
-        try (Connection connection = SQLUtils.getConnection();
+        try (Connection connection = Conexao.getConnection();
                 PreparedStatement statement = connection.prepareStatement(sql)) {            
             try (ResultSet resultados = statement.executeQuery()) {
                 while (resultados.next()) {
@@ -90,7 +90,7 @@ public class DAOProduto {
                     produto.setPrecoVenda(resultados.getDouble("preco_venda"));
                     produto.setQuantidade(resultados.getInt("quantidade"));
                     produto.setDtCadastro(new Date((resultados.getTimestamp("dt_cadastro")).getTime()));
-                    produto.setCategorias(DaoCategoria.searchByProdutoId(produto.getId()));
+                    produto.setCategorias(DAOCategoria.searchByProdutoId(produto.getId()));
                     listaProdutos.add(produto);
                 }
             }
@@ -103,7 +103,7 @@ public class DAOProduto {
     public static boolean update(Produto produto) {
         if (produto != null && produto.getId() > 0) {
             String sql = "UPDATE produto SET  nome=?, descricao=?, preco_compra=?, preco_venda=?, quantidade=? WHERE id=?";
-            try (Connection connection = SQLUtils.getConnection()) {
+            try (Connection connection = Conexao.getConnection()) {
                 connection.setAutoCommit(false);
                 try (PreparedStatement statement = connection.prepareStatement(sql)) {
                     statement.setString(1, produto.getNome());
@@ -133,7 +133,7 @@ public class DAOProduto {
     public static boolean delete(Produto produto) {
         if (produto != null && produto.getId() > 0) {
             String sql = "DELETE FROM produto WHERE id=?";
-            try (Connection connection = SQLUtils.getConnection()) {
+            try (Connection connection = Conexao.getConnection()) {
                 try (PreparedStatement statement = connection.prepareStatement(sql)) {
                     statement.setLong(1, produto.getId());
                     statement.execute();
