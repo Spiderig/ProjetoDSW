@@ -6,6 +6,11 @@
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 
+<%
+    response.sendRedirect("/ProjetoDSW-1.0-SNAPSHOT/ProjetoDSW");
+%>
+
+<%--
 <!DOCTYPE html>
 <html>
 <head>
@@ -37,7 +42,7 @@
     <div class="container">
         
         <div class="row">
-                <%-- <c:forEach items="${list}" var="item"> --%>
+                <%-- <c:forEach items="${list}" var="item">
                 
                 <div class="card col-sm-12 col-md-3" style="width: 18rem;">
                     <div class="card-body">
@@ -59,4 +64,4 @@
         </div>
     </div>
 </body>
-</html>
+</html>--%>
